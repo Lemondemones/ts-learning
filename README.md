@@ -163,8 +163,8 @@ let fruit: string[] = ["apple", "orange"];
 // fruit.push(1);
 // let people: string[] = ['bobo', 'peter', 1];
 //
-// be careful "[]" means literally empty array
-// let randomValues: [] = [1];
+// be careful "[]" || "never[]" means literally empty array
+// let randomValues: [] = [1] || let randomValues: never[] = [1];
 
 // be careful with inferred array types
 // let names = ['peter', 'susan'];
@@ -180,15 +180,15 @@ let array: (string | boolean)[] = ["apple", true, "orange", false];
 
 ```ts
 // 1. Temperatures
-let temperatures: number[] = [20, 25, 30];
+let temperatures: number[] = [20, 14, 22];
 // temperatures.push('hot'); // This will result in a TypeScript error
 
 // 2. Colors
-let colors: string[] = ["red", "green", "blue"];
+let colors: string[] = ["red", "blue", "yellow"];
 // colors.push(true); // This will result in a TypeScript error
 
 // 3. Mixed Array
-let mixedArray: (number | string)[] = [1, "two", 3];
+let mixedArray: (string | number)[] = [1, "red", "2"];
 // mixedArray.push(true); // This will result in a TypeScript error
 ```
 

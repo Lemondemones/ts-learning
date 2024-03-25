@@ -24,3 +24,10 @@ orderStatus = "delivered";
 // 2. Discount
 let discount: number | string = 20;
 discount = "20";
+
+console.log(discount, orderStatus);
+
+// Challenge 3
+let temperatures: number[] = [20, 14, 22];
+let colors: string[] = ["red", "blue", "yellow"];
+let mixedArray: (string | number)[] = [1, "red", "2"];
