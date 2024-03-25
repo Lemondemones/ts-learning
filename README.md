@@ -66,22 +66,22 @@ awesomeName = awesomeName.toUpperCase();
 
 ```ts
 // 1. String
-let greeting: string = "Hello, TypeScript!";
-greeting = greeting.toUpperCase(); // This should work fine
+let myFlower: string = "naRcissuS";
+myFlower = myFlower.toLowerCase();
 
 // 2. Number
-let age: number = 25;
-age = age + 5; // This should work fine
+let distance: number = 5000;
+distance = distance / 100;
 
 // 3. Boolean
-let isAdult: boolean = age >= 18;
-isAdult = !isAdult; // This should work fine
+let isHuman: boolean = true;
+isHuman = !isHuman;
 
 // 4. Assigning different types
 // Uncommenting any of these will result in a TypeScript error
-// greeting = 10; // Error: Type 'number' is not assignable to type 'string'
-// age = 'thirty'; // Error: Type 'string' is not assignable to type 'number'
-// isAdult = 'yes'; // Error: Type 'string' is not assignable to type 'boolean'
+// myFlower = 10; // Error: Type 'number' is not assignable to type 'string'
+// distance = 'thirty'; // Error: Type 'string' is not assignable to type 'number'
+// isHuman = 'yes'; // Error: Type 'string' is not assignable to type 'boolean'
 ```
 
 ## Setup Info
