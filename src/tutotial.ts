@@ -31,3 +31,17 @@ console.log(discount, orderStatus);
 let temperatures: number[] = [20, 14, 22];
 let colors: string[] = ["red", "blue", "yellow"];
 let mixedArray: (string | number)[] = [1, "red", "2"];
+
+// Challenge Functions - Fundamentals
+let names: string[] = ["Tom", "Jerry"];
+
+function isNameInArray(name: string): boolean {
+  return names.includes(name);
+}
+
+let nameToCheck: string = "Tom";
+if (isNameInArray(nameToCheck)) {
+  console.log(`${nameToCheck} is in array`);
+} else {
+  console.log(`nothing`);
+}

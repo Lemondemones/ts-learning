@@ -280,17 +280,17 @@ someValue.myMethod();
 - Use this function to check if various names are in your array and log the results.
 
 ```ts
-const names: string[] = ["John", "Jane", "Jim", "Jill"];
+let names: string[] = ["Tom", "Jerry"];
 
-function isNameInList(name: string): boolean {
+function isNameInArray(name: string): boolean {
   return names.includes(name);
 }
 
-let nameToCheck: string = "Jane";
-if (isNameInList(nameToCheck)) {
-  console.log(`${nameToCheck} is in the list.`);
+let nameToCheck: string = "Tom";
+if (isNameInArray(nameToCheck)) {
+  console.log(`${nameToCheck} is in array`);
 } else {
-  console.log(`${nameToCheck} is not in the list.`);
+  console.log(`nothing`);
 }
 ```
 
