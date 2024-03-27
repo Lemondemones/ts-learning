@@ -45,3 +45,118 @@ if (isNameInArray(nameToCheck)) {
 } else {
   console.log(`nothing`);
 }
+
+// Challenge Excess Property Checks
+function processData(
+  input: string | number,
+  config: { reverse: boolean } = { reverse: false }
+): string | number {
+  if (typeof input === "number") {
+    return Math.pow(input, 2);
+  } else {
+    return config.reverse ? input.toUpperCase().split("").reverse().join("") : input.toUpperCase();
+  }
+}
+//Challenge Type Alias
+type Employee = {
+  id: number;
+  name: string;
+  department: string;
+};
+
+type Manager = {
+  id: number;
+  name: string;
+  employees: Employee[];
+};
+
+type Staff = Employee | Manager;
+
+function printStaffDetails(staff: Staff): void {
+  if ("employees" in staff) {
+    console.log(`${staff.name} is a manager of ${staff.employees.length} employees.`);
+  } else {
+    console.log(`${staff.name} is an employee in the ${staff.department} department.`);
+  }
+}
+
+const alice: Employee = { id: 1, name: "Alice", department: "IT" };
+const steve: Employee = { id: 1, name: "Steve", department: "HR" };
+
+const bob: Manager = { id: 2, name: "Bob", employees: [alice, steve] };
+
+printStaffDetails(alice);
+printStaffDetails(bob);
+
+//Challenge Interface
+interface Computer {
+  readonly id: number;
+  brand: string;
+  ram: number;
+  storage?: number;
+  upgradeRam(increase: number): number;
+}
+
+const laptop: Computer = {
+  id: 1,
+  brand: "HP",
+  ram: 20,
+  upgradeRam(amount: number) {
+    this.ram += amount;
+    return this.ram;
+  },
+};
+
+laptop.storage = 256;
+
+console.log(laptop.upgradeRam(10));
+console.log(laptop);
+
+//Challenge Merging, Extend, TypeGuard Part 1
+
+interface Person {
+  name: string;
+}
+interface DogOwner extends Person {
+  dogName: string;
+}
+
+interface ManagerI extends Person {
+  managePeople(): void;
+  delegateTasks(): void;
+}
+
+function getEmployee(): Person | DogOwner | ManagerI {
+  const random = Math.random();
+
+  if (random < 0.33) {
+    return {
+      name: "izek",
+    };
+  } else if (random < 0.66) {
+    return {
+      name: "sarah",
+      dogName: "rax",
+    };
+  } else {
+    return {
+      name: "bob",
+      managePeople() {
+        console.log("managing people..");
+      },
+      delegateTasks() {
+        console.log("delegate task...");
+      },
+    };
+  }
+}
+
+const employeeI: Person | DogOwner | ManagerI = getEmployee();
+
+function isManager(obj: Person | DogOwner | ManagerI): obj is ManagerI {
+  return "managePeople" in obj;
+}
+
+if (isManager(employeeI)) {
+  employeeI.delegateTasks();
+}
