@@ -160,3 +160,30 @@ function isManager(obj: Person | DogOwner | ManagerI): obj is ManagerI {
 if (isManager(employeeI)) {
   employeeI.delegateTasks();
 }
+
+// Challenge Tuples and Enums
+enum UserRole {
+  Admin,
+  Manager,
+  Employee,
+}
+
+type User = {
+  id: number;
+  name: string;
+  role: UserRole;
+  contact: [string, string];
+};
+
+function createUser(user: User): User {
+  return user;
+}
+
+const user: User = createUser({
+  id: 1,
+  name: "Jhon",
+  role: UserRole.Admin,
+  contact: ["email@", "2313445"],
+});
+
+console.log(user);
