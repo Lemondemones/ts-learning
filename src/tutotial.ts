@@ -1,3 +1,4 @@
+import { z } from "zod";
 // Challenge 1
 
 // 1. String
@@ -283,4 +284,77 @@ const newState = reducer(15, {
     type: "increment",
     amount: 5,
     timestamp: 123456,
+});
+
+// Challenge Fetch Data
+// export {};
+
+// const url = "https://jsonplaceholder.typicode.com/posts";
+
+// type Post = {
+//     userId: number;
+//     id: number;
+//     title: "string";
+//     body: "string";
+// };
+
+// async function fetchData(url: string): Promise<Post[]> {
+//     try {
+//         const response = await fetch(url);
+//         if (!response.ok) {
+//             throw new Error(`HTTP error ! status: ${response.status}`);
+//         }
+//         const data: Post[] = await response.json();
+//         console.log(data);
+
+//         return data;
+//     } catch (error) {
+//         const errorMsg = error instanceof Error ? error.message : "there was an error...";
+//         console.log(errorMsg);
+//         return [];
+//     }
+// }
+
+// const posts = await fetchData(url);
+// posts.map((post) => {
+//     console.log(post.title);
+// });
+
+// Zod
+const url = "https://jsonplaceholder.typicode.com/posts";
+
+const postsSchema = z.object({
+    userId: z.number(),
+    id: z.number(),
+    title: z.string(),
+    body: z.string(),
+});
+
+type Post = z.infer<typeof postsSchema>;
+
+async function fetchData(url: string): Promise<Post[]> {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error ! status: ${response.status}`);
+        }
+        const data: Post[] = await response.json();
+        const result = postsSchema.array().safeParse(data);
+        console.log(result);
+
+        if (!result.success) {
+            throw new Error(`Invalid data: ${result.error}`);
+        }
+
+        return result.data;
+    } catch (error) {
+        const errorMsg = error instanceof Error ? error.message : "there was an error...";
+        console.log(errorMsg);
+        return [];
+    }
+}
+
+const posts = await fetchData(url);
+posts.map((post) => {
+    console.log(post.title);
 });
