@@ -358,3 +358,15 @@ const posts = await fetchData(url);
 posts.map((post) => {
     console.log(post.title);
 });
+
+//Classes
+class Book {
+    private checkedOut: boolean = false;
+    constructor(readonly title: string, public author: string, private someValue: number) {}
+    public getSomeValue() {
+        return this.someValue;
+    }
+}
+
+const deepWork = new Book("Deep Work", "Cal Newport", 445);
+console.log(deepWork.getSomeValue());
