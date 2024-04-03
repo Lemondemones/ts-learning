@@ -361,7 +361,6 @@ posts.map((post) => {
 
 //Classes
 class Book {
-    private checkedOut: boolean = false;
     constructor(readonly title: string, public author: string, private someValue: number) {}
     public getSomeValue() {
         return this.someValue;
