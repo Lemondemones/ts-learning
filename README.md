@@ -14,11 +14,3 @@ As you advance, the course explores more sophisticated TypeScript features, such
 ## TypeScript with React
 
 Furthermore, this course extends to integrating TypeScript with React, covering component structure, prop handling, state management, event handling, and complex component structures. You'll learn about using React's Context API, reducers, and global state management in a TypeScript environment, as well as data fetching and validation techniques. The course concludes with a practical task management application, highlighting the use of localStorage and task state management.
-
-## Final Project
-
-Finally, the course culminates in building a modern store application with TypeScript,  Shadcn/ui, and React Router, incorporating features such as authentication and pagination.
-
-## Join Us
-
-Join us in **"Practical TypeScript"** to elevate your skills and confidently apply TypeScript in your development projects, from basic to advanced levels.
